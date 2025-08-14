@@ -1,125 +1,133 @@
 :root {
-        --base-font-color: rgb(131,148,150);
-        --secondary-font-color: rgb(88,110,117);
-        --emphasised-font: rgb(147,161,161);
+  --base-font-color: rgb(131,148,150);
+  --secondary-font-color: rgb(88,110,117);
+  --emphasised-font: rgb(147,161,161);
+  --c-background-color: rgb(0, 43, 54);
+  --c-background-highlights: rgb(7, 54, 66);
+  --c-yellow: rgb(181,137, 0);
+  --c-orange: rgb(203, 75, 22);
+  --c-red: rgb(220, 50, 47);
+  --c-magenta: rgb(211, 54,130);
+  --c-violet: rgb(108,113,196);
+  --c-blue: rgb(38,139,210);
+  --c-cyan: rgb(42,161,152);
+  --c-green: rgb(133,153,0);
+}
 
-        --c-background-color: rgb(0, 43, 54);
-        --c-background-highlights: rgb(7, 54, 66);
+/* ===== Stage 2: base colours & layout ===== */
+body {
+  background-color: var(--c-background-color);
+  color: var(--base-font-color);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
 
-        --c-yellow: rgb(181,137,  0);
-        --c-orange: rgb(203, 75, 22);
-        --c-red: rgb(220, 50, 47);
-        --c-magenta: rgb(211, 54,130);
-        --c-violet: rgb(108,113,196);
-        --c-blue: rgb(38,139,210);
-        --c-cyan: rgb(42,161,152);
-        --c-green: rgb(133,153,0);
-      }
+header, footer {
+  background-color: var(--c-background-highlights);
+  color: var(--base-font-color);
+}
 
-      /* ===== Stage 1: base colours & layout ===== */
+header { 
+  text-align: center; 
+  padding: 12px 0; 
+}
 
-      body {
-        background-color: var(--c-background-color);
-        color: var(--base-font-color);
-        max-width: 800px;
-        margin: 0 auto;
-        line-height: 1.4;
-      }
+header h1 { 
+  color: var(--c-yellow); 
+  font-size: 150%; 
+  margin: 0; 
+}
 
-      header,
-      footer {
-        background-color: var(--c-background-highlights);
-        color: var(--base-font-color);
-      }
+/* ===== Stage 3: navigation ===== */
+nav { width: 100%; }
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+  margin: 12px 0 20px 0;
+  width: 100%;
+}
+nav li a { 
+  display: inline-block; 
+  text-align: center; 
+  padding: 6px 8px; 
+}
 
-      header {
-        text-align: center;
-        padding: 12px 0;
-      }
+/* ===== Stage 4: article & links ===== */
+article a { 
+  color: var(--c-magenta); 
+  text-decoration: underline; 
+}
+article a:hover { 
+  color: var(--c-orange); 
+}
 
-      /* ===== Stage 2: header, nav, and link styling ===== */
+/* ===== Stage 5: aside & related links ===== */
+aside { 
+  color: var(--c-green); 
+}
+aside a { 
+  color: var(--c-red); 
+  text-decoration: underline; 
+}
+aside a:hover { 
+  color: var(--c-blue); 
+}
+aside h2 { 
+  color: var(--c-yellow); 
+}
+aside li::marker { 
+  color: var(--c-yellow); 
+}
 
-      /* Header heading colour & size */
-      header h1 {
-        color: var(--c-yellow);
-        font-size: 150%;
-        margin: 0;
-      }
+/* ===== Stage 6: headings ===== */
+article h1, 
+article h2, 
+article h3, 
+article h4, 
+article h5, 
+article h6 { 
+  padding-top: 50px; 
+}
 
-      nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 0;
-        margin: 12px 0 20px 0;
-        width: 100%;
-      }
+/* ===== Stage 7: subsection borders ===== */
+article h3,
+article h3 + p,
+article h3 + p + p {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px;
+  border: none;
+}
+article h3 {
+  border-top: 3px solid var(--c-cyan);
+  border-left: 3px solid var(--c-cyan);
+  border-right: 3px solid var(--c-cyan);
+}
+article h3 + p {
+  border-left: 3px solid var(--c-cyan);
+  border-right: 3px solid var(--c-cyan);
+}
+article h3 + p + p {
+  border-left: 3px solid var(--c-cyan);
+  border-right: 3px solid var(--c-cyan);
+  border-bottom: 3px solid var(--c-cyan);
+}
+article h3:first-of-type { 
+  margin-top: 20px; 
+}
 
-      nav li a {
-        text-align: center;
-        display: inline-block;
-        padding: 6px 8px;
-      }
+/* ===== Stage 8: main layout ===== */
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 20px;
+  color: var(--base-font-color);
+}
+article { grid-column: 1; }
+aside   { grid-column: 2; }
 
-      article a {
-        color: var(--c-magenta);
-        text-decoration: underline;
-      }
-
-      article a:hover {
-        color: var(--c-orange);
-      } 
-
-      /* ===== Stage 3: subsection borders, aside styling, and layout ===== */
-
-      article h3 {
-        border: 3px solid var(--c-cyan);
-        padding: 10%;
-        margin: 20px 0 0 0;
-      }
-      
-      article h3 + p {
-        border: 3pmx solid var(--c-cyan);
-        border-top: none;
-        padding: 10px;
-        margin: 0;
-      }
-
-        article h3 + p + p {
-        border: 3px solid var(--c-cyan);
-        border-top: none;
-        padding: 10px;
-        margin: 0 0 20px 0;
-      }
-
-      article h2,
-      article h3 {
-        padding-top: 50px;
-      }
-      
-      aside {
-        color: var(--c-green);
-      }
-      
-      aside a {
-        color: var(--c-red);
-      }
-      
-      aside a:hover {
-        color: var(--c-blue);
-      }
-
-      main {
-        display: grid;
-        grid-template-columns: 1fr 260px;
-        gap: 20px;
-      }
-
-      aside {
-        grid-column: 2;
-      }
-
-      article {
-        grid-column: 1;
-      }
+footer p { margin: 10px; }
