@@ -70,3 +70,56 @@
       article a:hover {
         color: var(--c-orange);
       } 
+
+      /* ===== Stage 3: subsection borders, aside styling, and layout ===== */
+
+      article h3 {
+        border: 3px solid var(--c-cyan);
+        padding: 10%;
+        margin: 20px 0 0 0;
+      }
+      
+      article h3 + p {
+        border: 3pmx solid var(--c-cyan);
+        border-top: none;
+        padding: 10px;
+        margin: 0;
+      }
+
+        article h3 + p + p {
+        border: 3px solid var(--c-cyan);
+        border-top: none;
+        padding: 10px;
+        margin: 0 0 20px 0;
+      }
+
+      article h2,
+      article h3 {
+        padding-top: 50px;
+      }
+      
+      aside {
+        color: var(--c-green);
+      }
+      
+      aside a {
+        color: var(--c-red);
+      }
+      
+      aside a:hover {
+        color: var(--c-blue);
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: 1fr 260px;
+        gap: 20px;
+      }
+
+      aside {
+        grid-column: 2;
+      }
+
+      article {
+        grid-column: 1;
+      }
