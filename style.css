@@ -16,14 +16,14 @@
         --c-green: rgb(133,153,0);
       }
 
-      /* ===== Stage 2: base colours & layout ===== */
+      /* ===== Stage 1: base colours & layout ===== */
 
       body {
         background-color: var(--c-background-color);
         color: var(--base-font-color);
         max-width: 800px;
         margin: 0 auto;
-        line height: 1.4;
+        line-height: 1.4;
       }
 
       header,
@@ -36,3 +36,37 @@
         text-align: center;
         padding: 12px 0;
       }
+
+      /* ===== Stage 2: header, nav, and link styling ===== */
+
+      /* Header heading colour & size */
+      header h1 {
+        color: var(--c-yellow);
+        font-size: 150%;
+        margin: 0;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+        margin: 12px 0 20px 0;
+        width: 100%;
+      }
+
+      nav li a {
+        text-align: center;
+        display: inline-block;
+        padding: 6px 8px;
+      }
+
+      article a {
+        color: var(--c-magenta);
+        text-decoration: underline;
+      }
+
+      article a:hover {
+        color: var(--c-orange);
+      } 
